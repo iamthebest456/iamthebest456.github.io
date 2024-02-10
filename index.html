@@ -60,6 +60,7 @@
   .like-image {
     width: 24px;
     height: 24px;
+    transition: opacity 0.5s ease; /* Add transition effect for opacity */
   }
 </style>
 </head>
@@ -69,7 +70,9 @@
   <iframe src="https://example.com/game" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
   <div class="rainbow-bar">
     <span class="game-title">Game Title</span>
-    <img class="like-image" src="like.svg" alt="Like Button">
+    <button class="button" onclick="toggleLike()">
+      <img class="like-image" id="like-image" src="https://your-site.com/like.svg" alt="Like Button">
+    </button>
     <button class="button" onclick="toggleFullscreen()">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <path fill="none" d="M0 0h24v24H0V0z"></path>
@@ -84,6 +87,7 @@
 
 <script>
 let isFullscreen = false; // Track fullscreen state
+let isLiked = false; // Track like state
 
 function toggleFullscreen() {
   const elem = document.querySelector('.game-container');
@@ -106,6 +110,20 @@ function toggleBarVisibility() {
   if (isFullscreen) { // Only hide the bar if in fullscreen mode
     const bar = document.querySelector('.rainbow-bar');
     bar.style.display = bar.style.display === 'none' ? 'flex' : 'none'; // Toggle bar display
+  }
+}
+
+function toggleLike() {
+  const likeImage = document.getElementById('like-image');
+  if (!isLiked) {
+    likeImage.style.opacity = '0'; // Fade out the current image
+    setTimeout(() => {
+      likeImage.src = 'https://your-site.com/like_green.svg'; // Replace with URL of green like image
+      likeImage.style.opacity = '1'; // Fade in the new image
+      isLiked = true; // Update like state
+    }, 500); // Adjust the time to match the transition duration
+  } else {
+    // Handle unliking behavior if needed
   }
 }
 </script>
