@@ -4,52 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home</title>
-<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABpElEQVR4AaSRA4xdURRF16lt23bj1LGT2gjrOI3qNmaj2o5rxLU1impb45m7Oy/nG1H3/89v7ax3D/8bq300cqVqvswzE4ZIjTAkA9WDYAQZEhDqoehew44nrPp2R5lKMROYUmmHMRQMZEjJwuierBlWfaO5zKCgvD2FFR0xi8OAhPwcBUHw8+FNfzCi2S8kowEyhCgo68jp70PAAIdp1rBpBPK38i9eEFAIzOmgupLfEBW4JhAUPSSe5o2asXHaOhBsvLqdvxWlKMUIQOAFht/0AgNgyZi59GnTE4Bl4xew4/ouErQAGSQ/wVDANREAB+4fpU/bXgDsu3vEDaV0C8UNlGrgiZQ3XNqGJEorY/qp/hgiYQBKWYMRXYYyvMswoiNAwYcibr+8x4uvL7wogGTpi6jgBmsnrmDqwEmkZnhd0ZyxMzhbcIE91/fjgPkYFSwxOgU5nCd92/VJhX0NUD0gmusv5rR/TUHJPlIjkUhp6UfmdnzP8GZ/QCAZVnqlk0Bg5I4AzAEscS2BjxEtC2JpPeGxVBACpJ/o3+AEKEAXUJydAaXZGQbI/ZzTAAAAAElFTkSuQmCC" type="image/x-icon">
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: black; /* Set background color */
-    color: white; /* Text color */
-  }
-  .top-bar {
-    background-color: #1e3a8a; /* Dark blue background color */
-    padding: 10px 20px;
-    text-align: center;
-    position: fixed; /* Fixed position */
-    top: 0; /* Stick to the top */
-    width: 100%; /* Full width */
-    z-index: 1000; /* Ensure it's above other content */
-  }
-  .top-bar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 20px;
-    font-size: 18px;
-  }
-</style>
-</head>
-<body>
-
-<div class="top-bar">
-  <a href="skill.html">Skill</a>
-  <a href="action.html">Action</a>
-  <a href="racing.html">Racing</a>
-  <a href="movies.html">Movies</a>
-</div>
-
-</body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Embed</title>
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABpElEQVR4AaSRA4xdURRF16lt23bj1LGT2gjrOI3qNmaj2o5rxLU1impb45m7Oy/nG1H3/89v7ax3D/8bq300cqVqvswzE4ZIjTAkA9WDYAQZEhDqoehew44nrPp2R5lKMROYUmmHMRQMZEjJwuierBlWfaO5zKCgvD2FFR0xi8OAhPwcBUHw8+FNfzCi2S8kowEyhCgo68jp70PAAIdp1rBpBPK38i9eEFAIzOmgupLfEBW4JhAUPSSe5o2asXHaOhBsvLqdvxWlKMUIQOAFht/0AgNgyZi59GnTE4Bl4xew4/ouErQAGSQ/wVDANREAB+4fpU/bXgDsu3vEDaV0C8UNlGrgiZQ3XNqGJEorY/qp/hgiYQBKWYMRXYYyvMswoiNAwYcibr+8x4uvL7wogGTpi6jgBmsnrmDqwEmkZnhd0ZyxMzhbcIE91/fjgPkYFSwxOgU5nCd92/VJhX0NUD0gmusv5rR/TUHJPlIjkUhp6UfmdnzP8GZ/QCAZVnqlk0Bg5I4AzAEscS2BjxEtC2JpPeGxVBACpJ/o3+AEKEAXUJydAaXZGQbI/ZzTAAAAAElFTkSuQmCC" type="image/x-icon"> <!-- Favicon -->
 <style>
   body {
     margin: 0;
@@ -57,11 +12,26 @@
     font-family: Arial, sans-serif;
     background-color: black; /* Set background color to black */
   }
+  .top-bar {
+    background-color: #1e3a8a; /* Dark blue background color */
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed; /* Fixed position */
+    width: 100%; /* Full width */
+    top: 0; /* Stick to the top */
+    z-index: 1000; /* Ensure the bar stays on top of other content */
+  }
+  .top-bar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 18px;
+  }
   .game-container {
     position: relative;
     width: 860px;
     height: 620px;
-    margin: 0 auto;
+    margin: 70px auto 0; /* Adjust margin to make space for the top bar */
     overflow: hidden; /* Hide overflow content */
     border-radius: 20px; /* Rounded corners */
   }
@@ -112,12 +82,19 @@
 </head>
 <body>
 
+<div class="top-bar">
+  <a href="skill.html">Skill</a>
+  <a href="action.html">Action</a>
+  <a href="racing.html">Racing</a>
+  <a href="movies.html">Movies</a>
+</div>
+
 <div class="game-container">
-  <iframe src="https://example.com/game" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://example.com/game" frameborder="0" allowfullscreen></iframe>
   <div class="rainbow-bar">
     <span class="game-title">Game Title</span>
     <button class="button" onclick="toggleLike()">
-      <img class="like-image" id="like-image" src="like.svg" alt="Like Button">
+      <img class="like-image" id="like-image" src="https://your-site.com/like.svg" alt="Like Button">
     </button>
     <button class="button" onclick="toggleFullscreen()">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -139,7 +116,7 @@ let isLiked = localStorage.getItem('isLiked') === 'true'; // Retrieve like state
 // Set initial like button state
 const likeImage = document.getElementById('like-image');
 if (isLiked) {
-  likeImage.src = 'greenlike.svg'; // Replace with URL of green like image
+  likeImage.src = 'https://your-site.com/like_green.svg'; // Replace with URL of green like image
 }
 
 function toggleFullscreen() {
@@ -174,7 +151,7 @@ function toggleLike() {
   if (!isLiked) {
     likeImage.style.opacity = '0'; // Fade out the current image
     setTimeout(() => {
-      likeImage.src = 'greenlike.svg'; // Replace with URL of green like image
+      likeImage.src = 'https://your-site.com/like_green.svg'; // Replace with URL of green like image
       likeImage.style.opacity = '1'; // Fade in the new image
       isLiked = true; // Update like state
       localStorage.setItem('isLiked', 'true'); // Save like state to localStorage
