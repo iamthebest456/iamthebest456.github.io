@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Embed</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  .game-container {
+    position: relative;
+    width: 860px;
+    height: 620px;
+    margin: 0 auto;
+  }
+  .rainbow-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  .button {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+</style>
+</head>
+<body>
+
+<div class="game-container">
+  <iframe src="https://example.com/game" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+  <div class="rainbow-bar">
+    <span>Game Title</span>
+    <button class="button">Like</button>
+    <button class="button" onclick="toggleFullscreen()">Fullscreen</button>
+  </div>
+</div>
+
+<script>
+function toggleFullscreen() {
+  const elem = document.querySelector('.game-container');
+  if (!document.fullscreenElement) {
+    elem.requestFullscreen().catch(err => {
+      alert(`Error attempting to enable fullscreen mode: ${err.message}`);
+    });
+  } else {
+    document.exitFullscreen();
+  }
+}
+</script>
+
+</body>
+</html>
