@@ -28,6 +28,7 @@
     justify-content: space-between;
     padding: 0 20px;
     box-sizing: border-box;
+    transition: opacity 0.5s ease; /* Add transition effect for hide/show */
   }
   .button {
     padding: 10px;
@@ -39,6 +40,25 @@
   .button:hover {
     background-color: rgba(255, 255, 255, 0.8);
   }
+  .game-title {
+    font-size: 24px; /* Adjust font size as needed */
+    font-weight: bold;
+    color: white;
+    font-family: "Arial Black", sans-serif; /* Use a font with bubble letters */
+  }
+  .hide-bar-button {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px; /* Oval outline */
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .hide-bar-button:hover {
+    background-color: white;
+    color: black;
+  }
 </style>
 </head>
 <body>
@@ -46,7 +66,7 @@
 <div class="game-container">
   <iframe src="https://example.com/game" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
   <div class="rainbow-bar">
-    <span>Game Title</span>
+    <span class="game-title">Game Title</span>
     <button class="button">Like</button>
     <button class="button" onclick="toggleFullscreen()">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -55,18 +75,30 @@
       </svg>
     </button>
   </div>
+  <div class="hide-bar-button-container">
+    <button class="hide-bar-button" onclick="toggleBarVisibility()">Hide this Bar</button>
+  </div>
 </div>
 
 <script>
 function toggleFullscreen() {
   const elem = document.querySelector('.game-container');
   if (!document.fullscreenElement) {
-    elem.requestFullscreen().catch(err => {
+    elem.requestFullscreen().then(() => {
+      document.querySelector('.hide-bar-button-container').style.display = 'block'; // Show hide button when entering fullscreen
+    }).catch(err => {
       alert(`Error attempting to enable fullscreen mode: ${err.message}`);
     });
   } else {
-    document.exitFullscreen();
+    document.exitFullscreen().then(() => {
+      document.querySelector('.hide-bar-button-container').style.display = 'none'; // Hide hide button when exiting fullscreen
+    });
   }
+}
+
+function toggleBarVisibility() {
+  const bar = document.querySelector('.rainbow-bar');
+  bar.style.display = bar.style.display === 'none' ? 'flex' : 'none'; // Toggle bar display
 }
 </script>
 
