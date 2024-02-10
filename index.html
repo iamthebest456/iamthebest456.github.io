@@ -89,24 +89,30 @@
 </div>
 
 <script>
+let isFullscreen = false; // Track fullscreen state
+
 function toggleFullscreen() {
   const elem = document.querySelector('.game-container');
   if (!document.fullscreenElement) {
     elem.requestFullscreen().then(() => {
       document.querySelector('.hide-bar-button-container').style.display = 'block'; // Show hide button when entering fullscreen
+      isFullscreen = true; // Update fullscreen state
     }).catch(err => {
       alert(`Error attempting to enable fullscreen mode: ${err.message}`);
     });
   } else {
     document.exitFullscreen().then(() => {
       document.querySelector('.hide-bar-button-container').style.display = 'none'; // Hide hide button when exiting fullscreen
+      isFullscreen = false; // Update fullscreen state
     });
   }
 }
 
 function toggleBarVisibility() {
-  const bar = document.querySelector('.rainbow-bar');
-  bar.style.display = bar.style.display === 'none' ? 'flex' : 'none'; // Toggle bar display
+  if (isFullscreen) { // Only hide the bar if in fullscreen mode
+    const bar = document.querySelector('.rainbow-bar');
+    bar.style.display = bar.style.display === 'none' ? 'flex' : 'none'; // Toggle bar display
+  }
 }
 </script>
 
