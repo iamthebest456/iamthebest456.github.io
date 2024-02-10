@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Page</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon -->
+<title>Home</title>
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABpElEQVR4AaSRA4xdURRF16lt23bj1LGT2gjrOI3qNmaj2o5rxLU1impb45m7Oy/nG1H3/89v7ax3D/8bq300cqVqvswzE4ZIjTAkA9WDYAQZEhDqoehew44nrPp2R5lKMROYUmmHMRQMZEjJwuierBlWfaO5zKCgvD2FFR0xi8OAhPwcBUHw8+FNfzCi2S8kowEyhCgo68jp70PAAIdp1rBpBPK38i9eEFAIzOmgupLfEBW4JhAUPSSe5o2asXHaOhBsvLqdvxWlKMUIQOAFht/0AgNgyZi59GnTE4Bl4xew4/ouErQAGSQ/wVDANREAB+4fpU/bXgDsu3vEDaV0C8UNlGrgiZQ3XNqGJEorY/qp/hgiYQBKWYMRXYYyvMswoiNAwYcibr+8x4uvL7wogGTpi6jgBmsnrmDqwEmkZnhd0ZyxMzhbcIE91/fjgPkYFSwxOgU5nCd92/VJhX0NUD0gmusv5rR/TUHJPlIjkUhp6UfmdnzP8GZ/QCAZVnqlk0Bg5I4AzAEscS2BjxEtC2JpPeGxVBACpJ/o3+AEKEAXUJydAaXZGQbI/ZzTAAAAAElFTkSuQmCC" type="image/x-icon"> <!-- Favicon -->
 <style>
   body {
     margin: 0;
@@ -46,9 +46,9 @@
     text-align: center;
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 860px; /* Match the width of the iframe */
-    margin: auto; /* Center the bar */
     box-sizing: border-box;
     border-bottom-left-radius: 20px; /* Rounded bottom-left corner */
     border-bottom-right-radius: 20px; /* Rounded bottom-right corner */
@@ -128,11 +128,7 @@ function toggleFullscreen() {
     elem.requestFullscreen().then(() => {
       document.querySelector('.hide-bar-button-container').style.display = 'block'; // Show hide button when entering fullscreen
       isFullscreen = true; // Update fullscreen state
-      document.querySelector('.game-container').style.width = '100vw';
-      document.querySelector('.game-container').style.height = '100vh';
-      document.querySelector('.game-container iframe').style.width = '100%';
-      document.querySelector('.game-container iframe').style.height = '100%';
-      document.querySelector('.rainbow-bar').style.display = 'block';
+      document.querySelector('.rainbow-bar').style.width = '100%';
     }).catch(err => {
       alert(`Error attempting to enable fullscreen mode: ${err.message}`);
     });
@@ -140,14 +136,10 @@ function toggleFullscreen() {
     document.exitFullscreen().then(() => {
       document.querySelector('.hide-bar-button-container').style.display = 'none'; // Hide hide button when exiting fullscreen
       isFullscreen = false; // Update fullscreen state
-      document.querySelector('.game-container').style.width = '860px';
-      document.querySelector('.game-container').style.height = '620px';
-      document.querySelector('.game-container iframe').style.width = '100%';
-      document.querySelector('.game-container iframe').style.height = '100%';
+      document.querySelector('.rainbow-bar').style.width = '860px'; // Reset rainbow bar width
       if (isBarHidden) { // If bar was hidden before entering fullscreen, show it when exiting fullscreen
         toggleBarVisibility();
       }
-      document.querySelector('.rainbow-bar').style.display = 'none';
     });
   }
 }
