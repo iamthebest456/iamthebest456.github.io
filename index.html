@@ -71,7 +71,7 @@
   <div class="rainbow-bar">
     <span class="game-title">Game Title</span>
     <button class="button" onclick="toggleLike()">
-      <img class="like-image" id="like-image" src="https://your-site.com/like.svg" alt="Like Button">
+      <img class="like-image" id="like-image" src="like.svg" alt="Like Button">
     </button>
     <button class="button" onclick="toggleFullscreen()">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -118,7 +118,7 @@ function toggleLike() {
   if (!isLiked) {
     likeImage.style.opacity = '0'; // Fade out the current image
     setTimeout(() => {
-      likeImage.src = 'https://your-site.com/like_green.svg'; // Replace with URL of green like image
+      likeImage.src = 'greenlike.svg'; // Replace with URL of green like image
       likeImage.style.opacity = '1'; // Fade in the new image
       isLiked = true; // Update like state
     }, 500); // Adjust the time to match the transition duration
