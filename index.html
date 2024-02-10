@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home</title>
-<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABpElEQVR4AaSRA4xdURRF16lt23bj1LGT2gjrOI3qNmaj2o5rxLU1impb45m7Oy/nG1H3/89v7ax3D/8bq300cqVqvswzE4ZIjTAkA9WDYAQZEhDqoehew44nrPp2R5lKMROYUmmHMRQMZEjJwuierBlWfaO5zKCgvD2FFR0xi8OAhPwcBUHw8+FNfzCi2S8kowEyhCgo68jp70PAAIdp1rBpBPK38i9eEFAIzOmgupLfEBW4JhAUPSSe5o2asXHaOhBsvLqdvxWlKMUIQOAFht/0AgNgyZi59GnTE4Bl4xew4/ouErQAGSQ/wVDANREAB+4fpU/bXgDsu3vEDaV0C8UNlGrgiZQ3XNqGJEorY/qp/hgiYQBKWYMRXYYyvMswoiNAwYcibr+8x4uvL7wogGTpi6jgBmsnrmDqwEmkZnhd0ZyxMzhbcIE91/fjgPkYFSwxOgU5nCd92/VJhX0NUD0gmusv5rR/TUHJPlIjkUhp6UfmdnzP8GZ/QCAZVnqlk0Bg5I4AzAEscS2BjxEtC2JpPeGxVBACpJ/o3+AEKEAXUJydAaXZGQbI/ZzTAAAAAElFTkSuQmCC" type="image/x-icon">
+<title>Game Categories</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
   body {
     margin: 0;
@@ -28,6 +28,15 @@
     margin: 0 20px;
     font-size: 18px;
   }
+  .content {
+    padding-top: 60px; /* Adjust this value as needed */
+  }
+  iframe {
+    width: calc(100% - 40px); /* Adjust width as needed */
+    height: calc(100vh - 60px); /* Adjust height as needed */
+    margin: 10px 20px; /* Adjust margin as needed */
+    border: none;
+  }
 </style>
 </head>
 <body>
@@ -39,8 +48,13 @@
   <a href="movies.html">Movies</a>
 </div>
 
+<div class="content">
+  <iframe src="https://example.com/game" allowfullscreen></iframe>
+</div>
+
 </body>
 </html>
+
 
 <!DOCTYPE html>
 <html lang="en">
