@@ -7,12 +7,12 @@
 </head>
 <body>
 
-<input type="text" id="urlInput" placeholder="Enter URL">
+<textarea id="urlInput" placeholder="Enter URL"></textarea><br>
 <button onclick="saveUrlAsIframe()">Save URL as Iframe</button>
 
 <script>
 function saveUrlAsIframe() {
-    var url = document.getElementById('urlInput').value;
+    var url = document.getElementById('urlInput').value.trim();
 
     if (!url) {
         alert("Please enter a URL");
@@ -30,6 +30,21 @@ function saveUrlAsIframe() {
     iframe.style.border = 'none';
 
     document.body.appendChild(iframe);
+
+    // Create a Blob object from the URL
+    var blob = new Blob([url], { type: 'text/plain' });
+
+    // Create a temporary anchor element
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'url.txt'; // Change the filename as needed
+
+    // Append the anchor to the body and click it to trigger the download
+    document.body.appendChild(a);
+    a.click();
+
+    // Remove the anchor from the body
+    document.body.removeChild(a);
 }
 </script>
 
