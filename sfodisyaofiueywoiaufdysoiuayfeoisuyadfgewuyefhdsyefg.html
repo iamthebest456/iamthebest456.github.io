@@ -8,10 +8,10 @@
 <body>
 
 <textarea id="urlInput" placeholder="Enter URL"></textarea><br>
-<button onclick="saveUrlAsIframe()">Save URL as Iframe</button>
+<button onclick="downloadIframeUrl()">Download URL as File</button>
 
 <script>
-function saveUrlAsIframe() {
+function downloadIframeUrl() {
     var url = document.getElementById('urlInput').value.trim();
 
     if (!url) {
@@ -19,31 +19,12 @@ function saveUrlAsIframe() {
         return;
     }
 
-    var iframe = document.createElement('iframe');
-    iframe.src = url;
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.position = 'fixed';
-    iframe.style.top = '0';
-    iframe.style.left = '0';
-    iframe.style.zIndex = '9999';
-    iframe.style.border = 'none';
-
-    document.body.appendChild(iframe);
-
-    // Create a Blob object from the URL
     var blob = new Blob([url], { type: 'text/plain' });
-
-    // Create a temporary anchor element
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = 'url.txt'; // Change the filename as needed
-
-    // Append the anchor to the body and click it to trigger the download
     document.body.appendChild(a);
     a.click();
-
-    // Remove the anchor from the body
     document.body.removeChild(a);
 }
 </script>
