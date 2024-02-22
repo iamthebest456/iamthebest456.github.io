@@ -7,22 +7,44 @@
 </head>
 <body>
 
-<textarea id="urlInput" placeholder="Enter URL"></textarea><br>
-<button onclick="downloadIframeUrl()">Download URL as File</button>
+<textarea id="urlInput" readonly placeholder="Enter URL">https://example.com</textarea><br>
+<button onclick="downloadIframeUrl()">Download URL as Iframe</button>
 
 <script>
 function downloadIframeUrl() {
     var url = document.getElementById('urlInput').value.trim();
 
-    if (!url) {
-        alert("Please enter a URL");
-        return;
-    }
+    var htmlContent = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Iframe Page</title>
+            <style>
+                body, html {
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                }
+            </style>
+        </head>
+        <body>
+            <iframe src="${url}"></iframe>
+        </body>
+        </html>
+    `;
 
-    var blob = new Blob([url], { type: 'text/plain' });
+    var blob = new Blob([htmlContent], { type: 'text/html' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'url.txt'; // Change the filename as needed
+    a.download = 'iframe_page.html'; // Change the filename as needed
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
