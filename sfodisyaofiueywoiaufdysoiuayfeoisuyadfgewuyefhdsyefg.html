@@ -7,12 +7,11 @@
 </head>
 <body>
 
-<textarea id="urlInput" readonly placeholder="Enter URL">https://example.com</textarea><br>
 <button onclick="downloadIframeUrl()">Download URL as Iframe</button>
 
 <script>
 function downloadIframeUrl() {
-    var url = document.getElementById('urlInput').value.trim();
+    var url = 'https://example.com'; // Hardcoded URL
 
     var htmlContent = `
         <!DOCTYPE html>
